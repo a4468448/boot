@@ -1,0 +1,30 @@
+# Tomcat
+server:
+    tomcat:
+        max-threads: 20
+        min-spare-threads: 10
+    port: 8080
+    context-path: /businf
+
+# mysql
+spring:
+   profiles:
+        active: dev
+   datasource:
+        type: com.alibaba.druid.pool.DruidDataSource
+        driverClassName: com.mysql.jdbc.Driver
+   # jackson时间格式化
+   jackson:
+        time-zone: GMT+8
+        date-format: yyyy-MM-dd HH:mm:ss
+   http:
+        multipart:
+        max-file-size: 100MB
+        max-request-size: 100MB
+        enabled: true  
+
+# Mybatis配置
+mybatis:
+    mapperLocations: classpath:mapper/**/*.xml
+    configLocation: classpath:mybatis.xml
+
